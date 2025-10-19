@@ -1,0 +1,13 @@
+{
+  "name": "projeto_carrinho_de_compras",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "projeto simulação de um carrinho da shoppe",
+  "type" : "module"
+}
