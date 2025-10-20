@@ -8,6 +8,8 @@
 npm install chalk
 ```
 
+<img width="403" height="218" alt="terminal_chalk" src="https://github.com/user-attachments/assets/6bea11eb-5975-4a83-886d-df46de23bb14" />
+
 - instalar **log-symbols:** é um pacote com símbolos.
 ```bash
 npm i log-symbols -D
