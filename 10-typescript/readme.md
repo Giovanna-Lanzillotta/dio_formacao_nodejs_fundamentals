@@ -83,7 +83,7 @@ link: https://www.npmjs.com/package/tsup/v/8.5.0
 
 ~~~json
 "scripts": {
-dist": "tsup src",
+"dist": "tsup src",
 ~~~
 
 📈 Observar o site **npm trends** para ver as tendências no mercado.
