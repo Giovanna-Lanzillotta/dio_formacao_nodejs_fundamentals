@@ -1,7 +1,20 @@
 import fastify from "fastify";
+import cors from "@fastify/cors";
 import { request } from "http";
 
 const server = fastify({logger: true});
+
+// somente estas origins podem consumir a API
+// server.register(cors), {
+//     origin: ["www.dio.me", "www.felipao.com"]
+// };
+
+//Todos podem consumir a API
+server.register(cors, {
+    origin: "*",
+    // methods: ["GET", "POST"],
+});
+
 
 // const teams = [
 //     {
@@ -111,7 +124,7 @@ const drivers = [
     
     // Ferrari
     { id: 3, name: "Charles Leclerc", team: "Ferrari" },
-    { id: 4, name: "Lewis Hamilton", team: "Ferrari" }, // Confirmado para 2025
+    { id: 4, name: "Lewis Hamilton", team: "Ferrari" }, 
     
     // McLaren
     { id: 5, name: "Lando Norris", team: "McLaren" },
@@ -146,6 +159,75 @@ const drivers = [
     { id: 20, name: "Esteban Ocon", team: "Haas" }
 ];
 
+
+const circuits = [
+  {
+    "id": "albert_park",
+    "name": "Circuito de Albert Park",
+    "location": {
+      "city": "Melbourne",
+      "country": "Austrália"
+    }
+  },
+  {
+    "id": "bahrain",
+    "name": "Circuito Internacional do Barém",
+    "location": {
+      "city": "Sakhir",
+      "country": "Barém"
+    }
+  },
+  {
+    "id": "jeddah",
+    "name": "Circuito da Corniche de Gidá",
+    "location": {
+      "city": "Gidá",
+      "country": "Arábia Saudita"
+    }
+  },
+  {
+    "id": "interlagos",
+    "name": "Autódromo José Carlos Pace (Interlagos)",
+    "location": {
+      "city": "São Paulo",
+      "country": "Brasil"
+    }
+  },
+  {
+    "id": "monaco",
+    "name": "Circuito de Mónaco",
+    "location": {
+      "city": "Monte Carlo",
+      "country": "Mónaco"
+    }
+  },
+  {
+    "id": "silverstone",
+    "name": "Circuito de Silverstone",
+    "location": {
+      "city": "Silverstone",
+      "country": "Reino Unido"
+    }
+  },
+  {
+    "id": "hockenheimring",
+    "name": "Hockenheimring",
+    "location": {
+      "city": "Hockenheim",
+      "country": "Alemanha"
+    }
+  },
+  // ... Outras pistas históricas e atuais
+  {
+    "id": "nurburgring",
+    "name": "Nürburgring",
+    "location": {
+      "city": "Nürburg",
+      "country": "Alemanha"
+    }
+  }
+]
+
 server.get("/teams", async(request, response) => {
     response.type("application/json").code(200)
 
@@ -158,12 +240,17 @@ server.get("/drivers", async(request, response) =>{
     return {drivers}
 });
 
-//camada de service
+server.get("/circuits", async(request, response) =>{
+    response.type("application/json").code(200)
+
+    return {circuits}
+});
 
 interface DriversParams {
     id : string;
 }
 
+//camada de service
 server.get<{ Params: DriversParams }>("/drivers/:id", async(request,response) => {
     const id = parseInt(request.params.id);
     const driver = drivers.find((d) => d.id === id);

@@ -2,7 +2,7 @@
 
 ## Criando uma Minimal API da Fórmula 1 com Node.js e Fastify 
 
-## 🐱‍💻 Tecnologias utilzadas:
+## 🐱‍💻 Tecnologias utilizadas:
 <div>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" width="5%"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original.svg" width="5%"/>               
@@ -63,4 +63,17 @@ O método **GET** serve para recuperar dados ou recursos específicos de um serv
 ]
 ~~~
 
-#### Criando outro método GET
+#### métodos GET
+
+- 🏎 **teams** : para as equipes/times.
+
+- 👤 **drivers** : para os pilotos.
+
+- 🏁 **circuits** : para os circuitos.
+
+### Cors
+
+- instalar o cors, digitando no terminal:
+~~~shell
+npm i @fastify/cors
+~~~
