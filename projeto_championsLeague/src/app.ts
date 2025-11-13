@@ -1,0 +1,22 @@
+// Aqui fica o que respeito a aplicação
+import express, {json, Request, Response} from "express";
+
+function createApp() {
+ 
+const app = express();
+
+app.use(express.json());
+
+app.get("/", (req: Request, res: Response) => {
+    res.status(200).json({
+        player : "messi"
+    });
+});
+
+
+return app;
+
+}
+
+//Vai ser exportavel
+export default createApp;

@@ -2,10 +2,12 @@
 
 ## 🐱‍💻 Tecnologias Utilizadas
 
+<div>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" width="5%"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original.svg" width="5%"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" width="5%" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" width="5%"/>
+</div>
                            
 
 ## ⚽ Objetivo
@@ -48,3 +50,5 @@ npm i typescript tsx tsup -D
 ~~~shell
 npm i express
 ~~~
+
+- importe o express em ``server.ts`` e instale a tipagem ``@types/express``
