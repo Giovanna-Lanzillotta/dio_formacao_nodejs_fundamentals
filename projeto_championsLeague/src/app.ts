@@ -1,18 +1,13 @@
-// Aqui fica o que respeito a aplicação
-import express, {json, Request, Response} from "express";
+// Aqui fica o que diz respeito a aplicação
+import express from "express";
+import router from "./routers/routers";
 
 function createApp() {
  
 const app = express();
 
 app.use(express.json());
-
-app.get("/", (req: Request, res: Response) => {
-    res.status(200).json({
-        player : "messi"
-    });
-});
-
+app.use("/api", router);
 
 return app;
 
