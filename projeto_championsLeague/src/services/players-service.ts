@@ -2,6 +2,7 @@ import { response } from "express";
 import { PlayerModel } from "../models/player-model";
 import { deleteOnePlayer, findAllPlayers, FindPlayerById, insertPlayer } from "../repositories/player-repository";
 import { badRequest, created, noContent, ok } from "../utils/http-helper";
+import { StatisticsModel } from "../models/statistics-models";
 
 export const getPlayerService = async () => {
     const data = await findAllPlayers();
@@ -57,3 +58,8 @@ export const deletePlayerService = async(id:number) => {
   return response;
 
 };
+
+
+export const UpdatePlayerService = async(id: number, statistics:StatisticsModel) => {
+  
+}

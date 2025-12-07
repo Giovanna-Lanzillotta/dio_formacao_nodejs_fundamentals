@@ -1,6 +1,6 @@
 // Gerenciador de rotas do proprio express
 import { Router } from "express";
-import { deletePlayer, getPlayer, getPlayerById, postPlayer } from "../controllers/players-controller";
+import { deletePlayer, getPlayer, getPlayerById, postPlayer, UpdatePlayer } from "../controllers/players-controller";
 
 const router = Router();
 
@@ -15,5 +15,8 @@ router.delete("/players/:id", deletePlayer);
 
 // rota para adicionar jogador
 router.post("/players",postPlayer);
+
+// rota para atualizar jogador
+router.patch("/players/:id",UpdatePlayer);
 
 export default router;
