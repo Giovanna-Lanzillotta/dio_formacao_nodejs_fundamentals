@@ -328,7 +328,11 @@ export const deleteOnePlayer = async (id: number) =>{
 
   if(index !== -1){
     database.splice(index, 1);
+    return true;
   }
+
+  return false
+  
 };
 
 // encontrar e modificar um jogador
