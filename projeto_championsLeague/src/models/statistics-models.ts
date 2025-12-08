@@ -1,5 +1,4 @@
 export interface StatisticsModel {
-    statistics: {
       Overall: number;
       Pace: number;
       Shooting: number;
@@ -8,4 +7,4 @@ export interface StatisticsModel {
       Defending:number; 
       Physical: number;
 };
-}
+

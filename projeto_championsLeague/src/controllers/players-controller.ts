@@ -44,5 +44,5 @@ export const UpdatePlayer = async (req: Request, res: Response) => {
     const bodyValue: StatisticsModel = req.body;
     const httpResponse = await UpdatePlayerService(id, bodyValue);
 
-    // res.status(httpResponse.statusCode).json(httpResponse.body);
+     //res.status(httpResponse.statusCode).json(httpResponse.body);
 };

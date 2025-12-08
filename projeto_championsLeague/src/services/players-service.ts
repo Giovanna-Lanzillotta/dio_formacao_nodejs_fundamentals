@@ -1,6 +1,6 @@
 import { response } from "express";
 import { PlayerModel } from "../models/player-model";
-import { deleteOnePlayer, findAllPlayers, FindPlayerById, insertPlayer } from "../repositories/player-repository";
+import { deleteOnePlayer, findAllPlayers, findAndModifyPlayer, FindPlayerById, insertPlayer } from "../repositories/player-repository";
 import { badRequest, created, noContent, ok } from "../utils/http-helper";
 import { StatisticsModel } from "../models/statistics-models";
 
@@ -39,10 +39,10 @@ export const createPlayerService = async (player:PlayerModel) => {
   if(Object.keys(player).length !== 0){
    await insertPlayer(player);
 
-   response = created();
+   response = await created();
 
   }else {
-    response = badRequest();
+    response = await badRequest();
   }
   
   return response;
@@ -53,7 +53,7 @@ export const deletePlayerService = async(id:number) => {
 
   await deleteOnePlayer(id);
 
-  response = ok({message: "deleted"})
+  response = await ok({message: "deleted"});
 
   return response;
 
@@ -61,5 +61,14 @@ export const deletePlayerService = async(id:number) => {
 
 
 export const UpdatePlayerService = async(id: number, statistics:StatisticsModel) => {
-  
+  const data = await findAndModifyPlayer(id,statistics);
+
+  let response = null;
+
+  if(Object.keys(data).length === 0){
+    response = await badRequest();
+  }else{
+  response = await ok(data);
+  }
+  return response;
 }
