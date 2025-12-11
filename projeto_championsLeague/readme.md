@@ -54,3 +54,7 @@ npm i express
 
 - importe o express em ``server.ts`` e instale a tipagem ``@types/express``
 
+- Instale o ``cors``
+~~~shell
+npm i cors
+~~~
