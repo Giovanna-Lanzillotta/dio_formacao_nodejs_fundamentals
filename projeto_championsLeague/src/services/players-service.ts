@@ -58,7 +58,7 @@ export const deletePlayerService = async(id:number) => {
     response = await badRequest();
   }
 
-
+  
   return response;
 
 };
